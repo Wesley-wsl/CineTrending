@@ -9,6 +9,10 @@ const Global = createGlobalStyle`
     box-sizing:border-box;
 }
 
+body {
+    background-color: #000315;
+}
+
 `;
 
 export default Global;
