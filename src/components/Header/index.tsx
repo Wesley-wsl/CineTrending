@@ -7,10 +7,15 @@ export default function Header() {
 
             <nav>
                 <ul>
-                    <li>Home</li>
-                    <li>Genres</li>
                     <li>
-                        <input type="text" placeholder="Search" />
+                        <a href="#">Home</a>
+                    </li>
+                    <li>
+                        <a href="#">Genres</a>
+                    </li>
+                    <li>
+                        {/* <input type="text" placeholder="Search" /> */}
+                        <i className="fas fa-search"></i>
                     </li>
                 </ul>
             </nav>

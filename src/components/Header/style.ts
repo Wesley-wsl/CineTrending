@@ -14,12 +14,15 @@ export const HeaderMain = styled.header`
 
     ul {
         display: flex;
-        justify-content: space-between;
         align-items: center;
 
         li {
             list-style: none;
             margin: 0 20px;
+            a {
+                text-decoration: none;
+                color: #fff;
+            }
 
             input {
                 margin-right: 20px;
