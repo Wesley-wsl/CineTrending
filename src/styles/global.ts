@@ -11,6 +11,12 @@ const Global = createGlobalStyle`
 
 body {
     background-color: #000315;
+    color: #fff;
+}
+
+a {
+    list-style: none;
+    color: #fff;
 }
 
 `;
