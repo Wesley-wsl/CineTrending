@@ -1,6 +1,7 @@
 import { Switch, Route } from 'react-router-dom';
 import Home from '../pages/Home/index';
 import Header from '.././components/Header/index';
+import Footer from '../components/Footer/index';
 
 export default function Router() {
     return (
@@ -9,6 +10,7 @@ export default function Router() {
             <Switch>
                 <Route path="/" exact component={Home} />
             </Switch>
+            <Footer />
         </>
     );
 }
