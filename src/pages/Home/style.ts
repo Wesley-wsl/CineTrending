@@ -23,3 +23,12 @@ export const HeroImage = styled.section`
         }
     }
 `;
+
+export const ListName = styled.div`
+    h2 {
+        font-size: 30px;
+        margin-top: 50px;
+        margin-bottom: 30px;
+        margin-left: 5%;
+    }
+`;
