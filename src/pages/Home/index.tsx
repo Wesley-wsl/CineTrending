@@ -15,26 +15,45 @@ export default function Home() {
         lang: 'en-US',
     };
 
+    const TopMovies: any = [];
+    const TopTVs: any = [];
+
     function getTrendingMovies() {
         axios
             .get(`${api.base}trending/movie/day?api_key=${api.key}`)
             .then(res => {
-                setTrendingMovies(res.data);
+                for (let i = 0; i < 10; i++) {
+                    TopMovies.push(res.data.results[i]);
+                }
+
+                setTrendingMovies(TopMovies);
                 setExistsMovies(true);
+            })
+            .catch(error => {
+                console.log(`Houve um erro: ${error}`);
             });
     }
 
     function getTrendingTVs() {
-        axios.get(`${api.base}trending/tv/day?api_key=${api.key}`).then(res => {
-            setTrendingTVs(res.data);
-            setExistsTVs(true);
-        });
+        axios
+            .get(`${api.base}trending/tv/day?api_key=${api.key}`)
+            .then(res => {
+                for (let i = 0; i < 10; i++) {
+                    TopTVs.push(res.data.results[i]);
+                }
+
+                setTrendingTVs(TopTVs);
+                setExistsTVs(true);
+            })
+            .catch(error => {
+                console.log(`Houve um erro: ${error}`);
+            });
     }
 
     useEffect(() => {
         getTrendingMovies();
         getTrendingTVs();
-    });
+    }, []);
 
     return (
         <main>
@@ -50,23 +69,15 @@ export default function Home() {
             )}
 
             <ListName>
-                <h2>Trending Movies</h2>
+                <h2>TOP 10 - Trending Movies Today</h2>
             </ListName>
-            {existsMovies ? (
-                <List listRenderWith={trendingMovies} movie={true} />
-            ) : (
-                ''
-            )}
+            {existsMovies ? <List listRenderWith={trendingMovies} /> : ''}
 
             <ListName>
-                <h2>Trending TVs</h2>
+                <h2>TOP 10 - Trending TVs Today</h2>
             </ListName>
 
-            {existsTVs ? (
-                <List listRenderWith={trendingTVs} movie={false} />
-            ) : (
-                ''
-            )}
+            {existsTVs ? <List listRenderWith={trendingTVs} /> : ''}
         </main>
     );
 }
