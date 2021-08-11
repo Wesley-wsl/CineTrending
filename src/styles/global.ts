@@ -9,13 +9,27 @@ const Global = createGlobalStyle`
     box-sizing:border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-    background-color: #000315;
+    background-color: #00020B;
     color: #fff;
+
+    &::-webkit-scrollbar{
+        background-color: #00020b;
+        border-radius: 50%;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: #000A53;
+        border-radius: 10px;
+    }
 }
 
 a {
-    list-style: none;
+    text-decoration: none;
     color: #fff;
 }
 
