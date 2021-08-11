@@ -11,6 +11,12 @@ export const ListStyle = styled.section`
         width: 185px;
         border-radius: 10px;
         margin: 0 30px 40px 0;
+        cursor: pointer;
+        transition: filter 0.2s;
+        &:hover {
+            filter: grayscale(100%) brightness(80%);
+        }
+
         img {
             border-radius: 10px 10px 0 0;
         }
