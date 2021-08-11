@@ -3,7 +3,7 @@ import { HeaderMain } from './style';
 export default function Header() {
     return (
         <HeaderMain>
-            <h1>MovieApp</h1>
+            <h1>CineTrending</h1>
 
             <nav>
                 <ul>
@@ -11,11 +11,10 @@ export default function Header() {
                         <a href="#">Home</a>
                     </li>
                     <li>
-                        <a href="#">Genres</a>
+                        <a href="#Movies">Top Movies</a>
                     </li>
                     <li>
-                        {/* <input type="text" placeholder="Search" /> */}
-                        <i className="fas fa-search"></i>
+                        <a href="#TVs">Top TVs</a>
                     </li>
                 </ul>
             </nav>
