@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const ListStyle = styled.section`
-    max-width: 90%;
+    max-width: 1110px;
     margin: 0 auto;
     display: flex;
     flex-wrap: wrap;
@@ -10,7 +10,7 @@ export const ListStyle = styled.section`
         background-color: #00052a;
         width: 185px;
         border-radius: 10px;
-        margin: 0 30px 40px 0;
+        margin: 0 35px 40px 0;
         cursor: pointer;
         transition: filter 0.2s;
         &:hover {
