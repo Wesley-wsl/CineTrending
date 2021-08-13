@@ -7,7 +7,7 @@ export const HeaderMain = styled.header`
     flex-wrap: wrap;
     color: #fff;
     align-items: center;
-    padding: 13px;
+    padding: 16px;
 
     h1 {
         margin-left: 20px;
@@ -21,11 +21,7 @@ export const HeaderMain = styled.header`
             list-style: none;
             margin: 0 20px;
             transition: filter 0.2s;
-
-            a {
-                text-decoration: none;
-            }
-
+            cursor: pointer;
             &:hover {
                 filter: invert(50%) sepia(20%);
             }
