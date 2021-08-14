@@ -1,4 +1,4 @@
-import { BackgroundImage, DetailsStyle } from './styles';
+import { BackgroundImage, DetailsStyle } from '../Details/styles';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
@@ -8,15 +8,16 @@ type Params = {
     idTv?: string | number;
 };
 
-const Details: React.FC = () => {
+const DetailsTV: React.FC = () => {
     const { id }: Params = useParams();
     const [data, setData] = useState(Object);
     const [trailer, setTrailer] = useState(Object);
     window.scrollTo(0, 0);
+
     function getInfo() {
         axios
             .get(
-                `https://api.themoviedb.org/3/movie/${id}?api_key=${process.env.REACT_APP_IMDB_API_KEY}&language=en-US`,
+                `https://api.themoviedb.org/3/tv/${id}?api_key=${process.env.REACT_APP_IMDB_API_KEY}&language=en-US`,
             )
             .then(res => {
                 setData(res.data);
@@ -29,10 +30,10 @@ const Details: React.FC = () => {
     function getTrailer() {
         axios
             .get(
-                `https://api.themoviedb.org/3/movie/${id}/videos?api_key=${process.env.REACT_APP_IMDB_API_KEY}&language=en-US`,
+                `https://api.themoviedb.org/3/tv/${id}/videos?api_key=${process.env.REACT_APP_IMDB_API_KEY}&language=en-US`,
             )
             .then(res => {
-                setTrailer(res.data.results[0].key);
+                res.data.results[0] ? setTrailer(res.data.results[0].key) : '';
             });
     }
 
@@ -45,32 +46,25 @@ const Details: React.FC = () => {
     return (
         <DetailsStyle>
             <div>
+                <img
+                    className="poster"
+                    src={`https://image.tmdb.org/t/p/w185${data.poster_path}`}
+                    alt="Poster"
+                />
                 {data ? (
-                    <>
+                    <BackgroundImage>
                         <img
-                            className="poster"
-                            src={`https://image.tmdb.org/t/p/w185${data.poster_path}`}
-                            alt="Poster"
+                            className="background"
+                            src={`https://image.tmdb.org/t/p/w780${data.backdrop_path}`}
+                            alt="background"
                         />
-                        <BackgroundImage>
-                            <img
-                                className="background"
-                                src={`https://image.tmdb.org/t/p/w780${data.backdrop_path}`}
-                                alt="background"
-                            />
-                        </BackgroundImage>
-                    </>
+                    </BackgroundImage>
                 ) : (
                     'Loading...'
                 )}
 
                 <div>
-                    <h2>
-                        {data.original_title
-                            ? data.original_title
-                            : data.original_name}
-                    </h2>
-
+                    <h2>{data.original_name}</h2>
                     <p>
                         <span>OverView</span>: {data.overview}
                     </p>
@@ -93,9 +87,13 @@ const Details: React.FC = () => {
                             : 'Loading...'}
                     </p>
                     <p>
-                        <span>Duration</span>: {`${data.runtime} min.`}
+                        <span>Season Number</span>: {data.number_of_seasons}
+                        {' - '}
+                        <span>Duration</span>:{' '}
+                        {data.episode_run_time
+                            ? `${data.episode_run_time[0]} min`
+                            : 'Undefined'}
                     </p>
-
                     <span>
                         <i className="fas fa-star"></i> {data.vote_average}
                     </span>
@@ -112,4 +110,4 @@ const Details: React.FC = () => {
     );
 };
 
-export default Details;
+export default DetailsTV;
