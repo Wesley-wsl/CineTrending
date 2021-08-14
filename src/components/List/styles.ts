@@ -10,7 +10,7 @@ export const ListStyle = styled.section`
         background-color: #00052a;
         width: 185px;
         border-radius: 10px;
-        margin: 0 35px 40px 0;
+        margin: 0 35px 40px 2px;
         cursor: pointer;
         transition: filter 0.2s;
         &:hover {
@@ -29,6 +29,12 @@ export const ListStyle = styled.section`
         .year {
             font-size: 12px;
             opacity: 0.5;
+        }
+    }
+
+    @media (max-width: 1084px) {
+        div {
+            margin-right: 10px;
         }
     }
 `;
