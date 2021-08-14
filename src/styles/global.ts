@@ -14,7 +14,7 @@ html {
 }
 
 body {
-    background-color: #00020B;
+    background-color: #000315;
     color: #fff;
 
     &::-webkit-scrollbar{
