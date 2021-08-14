@@ -8,17 +8,6 @@ export const DetailsStyle = styled.section`
     position: relative;
     padding: 20px;
 
-    .background-image {
-        background-image: url('https://image.tmdb.org/t/p/w1280/rAgsOIhqRS6tUthmHoqnqh9PIAE.jpg');
-        background-position: center;
-        filter: saturate(20%) sepia(30%) brightness(20%);
-        width: 100%;
-        height: 100%;
-        border-radius: 10px;
-        position: absolute;
-        z-index: -1;
-    }
-
     div {
         display: flex;
         justify-content: space-between;
@@ -38,10 +27,14 @@ export const DetailsStyle = styled.section`
         div {
             float: right;
             flex-direction: column;
-            height: 70%;
+            height: 95%;
 
             p {
                 max-width: 600px;
+                color: #e9ecef;
+                span {
+                    color: #adb5bd;
+                }
             }
 
             button {
@@ -58,5 +51,53 @@ export const DetailsStyle = styled.section`
                 }
             }
         }
+    }
+
+    @media (max-width: 980px) {
+        display: flex;
+
+        div {
+            .poster {
+                display: none;
+            }
+        }
+    }
+
+    @media (max-width: 700px) {
+        margin: 0;
+        max-width: 100%;
+        height: 470px;
+
+        div {
+            margin-right: 0px;
+
+            div {
+                p {
+                    margin-top: 10px;
+                }
+            }
+        }
+    }
+
+    @media (max-width: 380px) {
+        height: 600px;
+    }
+`;
+
+// interface BackgroundProps {
+//     BackgroundPath: string;
+// }
+
+export const BackgroundImage = styled.div`
+    .background {
+        filter: saturate(120%) sepia(80%) brightness(20%);
+        width: 100%;
+        height: 100%;
+        border-radius: 10px;
+        margin: 0 auto;
+        z-index: -1;
+        position: absolute;
+        top: 0;
+        right: 0;
     }
 `;
