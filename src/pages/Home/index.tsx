@@ -14,20 +14,11 @@ export default function Home() {
         lang: 'en-US',
     };
 
-    // eslint-disable-next-line @typescript-eslint/ban-types
-    const TopMovies: Array<Object> = [];
-    // eslint-disable-next-line @typescript-eslint/ban-types
-    const TopTVs: Array<Object> = [];
-
     function getTrendingMovies() {
         axios
             .get(`${api.base}trending/movie/day?api_key=${api.key}&page=1`)
             .then(res => {
-                for (let i = 0; i < 10; i++) {
-                    TopMovies.push(res.data.results[i]);
-                }
-
-                setTrendingMovies(TopMovies);
+                setTrendingMovies(res.data.results);
                 setExistsMovies(true);
             })
             .catch(error => {
@@ -39,11 +30,7 @@ export default function Home() {
         axios
             .get(`${api.base}trending/tv/day?api_key=${api.key}&page=1`)
             .then(res => {
-                for (let i = 0; i < 10; i++) {
-                    TopTVs.push(res.data.results[i]);
-                }
-
-                setTrendingTVs(TopTVs);
+                setTrendingTVs(res.data.results);
                 setExistsTVs(true);
             })
             .catch(error => {
@@ -73,13 +60,21 @@ export default function Home() {
             <ListName id="Movies">
                 <h2>TOP 10 - Trending Movies Today</h2>
             </ListName>
-            {existsMovies ? <List listRenderWith={trendingMovies} /> : ''}
+            {existsMovies ? (
+                <List listRenderWith={trendingMovies} isMovie={true} />
+            ) : (
+                ''
+            )}
 
             <ListName id="TVs">
                 <h2>TOP 10 - Trending TVs Today</h2>
             </ListName>
 
-            {existsTVs ? <List listRenderWith={trendingTVs} /> : ''}
+            {existsTVs ? (
+                <List listRenderWith={trendingTVs} isMovie={false} />
+            ) : (
+                ''
+            )}
         </main>
     );
 }
