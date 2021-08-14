@@ -15,6 +15,16 @@ export const FooterStyle = styled.footer`
         span {
             font-size: 15px;
             opacity: 0.7;
+
+            a {
+                text-decoration: underline;
+            }
+        }
+    }
+
+    @media (max-width: 257px) {
+        p {
+            font-size: 20px;
         }
     }
 `;
