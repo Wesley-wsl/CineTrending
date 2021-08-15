@@ -1,16 +1,17 @@
-import { HeaderMain } from './style';
-import { Link } from 'react-scroll';
+import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
-import { NavMobile } from './NavMobile';
+import { Link } from 'react-scroll';
+import { NavStyle } from './style';
 
-export default function Header() {
+export function NavMobile() {
+    const [open, setOpen] = useState(false);
+
     return (
-        <HeaderMain>
-            <h1 id="Home">
-                <NavLink to="/">CineTrending</NavLink>
-            </h1>
+        <NavStyle open={open} onClick={() => setOpen(!open)}>
+            <div />
+            <div />
+            <div />
 
-            <NavMobile />
             <nav>
                 <ul>
                     <li>
@@ -28,6 +29,6 @@ export default function Header() {
                     </li>
                 </ul>
             </nav>
-        </HeaderMain>
+        </NavStyle>
     );
 }
