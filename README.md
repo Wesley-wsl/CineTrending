@@ -1,16 +1,20 @@
 # CineTrending
 
+## Demo 📸
+
 <p align='center'> <img src='./.github/CineTrending.gif'/></p>
 
-## Deploy da Aplicação com Netlify: :dash:
+<hr/>
+
+## Application deploy with netlify: :dash:
 
 > https://cinetrending.netlify.app
 
-## About
+## 📜 About the Project
 
 CineTrending is a project that show the top 10 trending movies/series for day and your information.
 
-## Technologies
+### 🛠 Technologies
 
 <li><a href="https://reactjs.org">React.js</a></li>
 <li><a href="https://styled-components.com">Styled-components</a></li>
@@ -22,23 +26,25 @@ CineTrending is a project that show the top 10 trending movies/series for day an
 <li><a href="https://prettier.io">prettier</a></li>
 <li><a href="https://editorconfig.org">EditorConfig</a></li>
 
-## How to run the application
+<hr/>
 
-### Pre-requisites: You must have the tools installed:  <a href="">Git</a>, <a href="">Node.js</a>
+## 💻 How to run the application
+
+#### Pre-requisites: You must have the tools installed:  <a href="">Git</a>, <a href="">Node.js</a>
 
 <pre>
-In the terminal, clone the project:
+# In the terminal, clone the project:
 $ git clone https://github.com/Wesley-wsl/CineTrending.git
 
-Enter the project folder:
+# Enter the project folder:
 $ cd CineTrending
 
-Install dependencies:
+# Install dependencies:
 $ yarn install
 ou
 $ npm install
 
-Run the application:
+# Run the application:
 $ yarn start
 ou
 $ npm run start
