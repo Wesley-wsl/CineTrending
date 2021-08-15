@@ -4,6 +4,7 @@ export const HeroImage = styled.section`
     img {
         width: 100%;
         margin: 0 auto;
+        max-height: 650px;
     }
 `;
 
