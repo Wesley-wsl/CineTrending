@@ -5,8 +5,8 @@ const Global = createGlobalStyle`
 * {
     margin: 0;
     padding: 0;
-    font-family: Roboto, Arial, Helvetica, sans-serif;
-    box-sizing:border-box;
+    font-family: Inter, Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
 }
 
 html {
@@ -14,17 +14,15 @@ html {
 }
 
 body {
-    background-color: #000315;
+    background-color: #000;
     color: #fff;
 
     &::-webkit-scrollbar{
         background-color: #00020b;
-        border-radius: 50%;
     }
 
     &::-webkit-scrollbar-thumb {
         background-color: #000A53;
-        border-radius: 10px;
     }
 }
 

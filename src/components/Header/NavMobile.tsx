@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { Link } from 'react-scroll';
+
 import { NavStyle } from './style';
 
 export function NavMobile() {

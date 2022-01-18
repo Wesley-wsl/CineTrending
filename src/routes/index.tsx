@@ -1,9 +1,10 @@
 import { Switch, Route } from 'react-router-dom';
-import Home from '../pages/Home/index';
+
 import Header from '.././components/Header/index';
 import Footer from '../components/Footer/index';
 import Details from '../pages/Details/index';
 import DetailsTV from '../pages/DetailsTV';
+import Home from '../pages/Home/index';
 import NotFound from '../pages/NotFound';
 
 export default function Router() {

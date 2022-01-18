@@ -1,7 +1,8 @@
-import { HeaderMain } from './style';
-import { Link } from 'react-scroll';
 import { NavLink } from 'react-router-dom';
+import { Link } from 'react-scroll';
+
 import { NavMobile } from './NavMobile';
+import { HeaderMain } from './style';
 
 export default function Header() {
     return (

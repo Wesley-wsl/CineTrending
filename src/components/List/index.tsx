@@ -1,5 +1,6 @@
-import { ListStyle } from './styles';
 import { Link } from 'react-router-dom';
+
+import { ListStyle } from './styles';
 
 type MovieProps = {
     // eslint-disable-next-line @typescript-eslint/ban-types

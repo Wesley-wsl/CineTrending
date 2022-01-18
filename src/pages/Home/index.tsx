@@ -1,7 +1,8 @@
-import { HeroImage, ListName } from './style';
-import { useEffect, useState } from 'react';
-import { List } from '../../components/List';
 import axios from 'axios';
+import { useEffect, useState } from 'react';
+
+import { List } from '../../components/List';
+import { HeroImage, ListName } from './style';
 
 export default function Home() {
     const [trendingTVs, setTrendingTVs] = useState(Object);
