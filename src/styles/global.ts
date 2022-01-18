@@ -2,6 +2,11 @@ import { createGlobalStyle } from 'styled-components';
 
 const Global = createGlobalStyle`
 
+:root {
+    --primary: #000;
+    --secondary: #050E12;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -14,15 +19,15 @@ html {
 }
 
 body {
-    background-color: #000;
+    background-color: var(--primary);
     color: #fff;
 
     &::-webkit-scrollbar{
-        background-color: #00020b;
+        background-color: var(--primary);
     }
 
     &::-webkit-scrollbar-thumb {
-        background-color: #000A53;
+        background-color: var(--secondary);
     }
 }
 
