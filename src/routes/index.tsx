@@ -1,4 +1,4 @@
-import { Switch, Route } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 
 import Details from '../pages/Details/index';
 import DetailsTV from '../pages/DetailsTV';
@@ -7,11 +7,11 @@ import NotFound from '../pages/NotFound';
 
 export default function Router() {
     return (
-        <Switch>
-            <Route path="/" exact component={Home} />
-            <Route path="/details/:id" exact component={Details} />
-            <Route path="/details/tv/:id" exact component={DetailsTV} />
-            <Route path="*" exact component={NotFound} />
-        </Switch>
+        <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/details/:id" element={<Details />} />
+            <Route path="/details/tv/:id" element={<DetailsTV />} />
+            <Route path="*" element={<NotFound />} />
+        </Routes>
     );
 }
