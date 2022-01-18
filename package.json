@@ -1,5 +1,5 @@
 {
-    "homepage": ".",
+  "homepage": ".",
   "name": "movie-app",
   "version": "0.1.0",
   "private": true,
@@ -54,6 +54,9 @@
     "@typescript-eslint/parser": "^4.29.0",
     "eslint": "^7.32.0",
     "eslint-config-prettier": "^8.3.0",
+    "eslint-import-resolver-typescript": "^2.5.0",
+    "eslint-plugin-import": "^2.25.4",
+    "eslint-plugin-import-helpers": "^1.2.1",
     "eslint-plugin-prettier": "^3.4.0",
     "eslint-plugin-react": "^7.24.0",
     "prettier": "2.3.2"
