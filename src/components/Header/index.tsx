@@ -1,34 +1,20 @@
-import { NavLink } from 'react-router-dom';
-import { Link } from 'react-scroll';
+import { Link } from 'react-router-dom';
 
-import { NavMobile } from './NavMobile';
-import { HeaderMain } from './style';
+import * as S from './style';
 
 export default function Header() {
     return (
-        <HeaderMain>
-            <h1 id="Home">
-                <NavLink to="/">CineTrending</NavLink>
+        <S.HeaderMain>
+            <h1>
+                <Link to="/">CineTrending</Link>
             </h1>
 
-            <NavMobile />
-            <nav>
-                <ul>
-                    <li>
-                        <NavLink to="/">Home</NavLink>
-                    </li>
-                    <li>
-                        <Link to="Movies" smooth={true} duration={900}>
-                            Top Movies
-                        </Link>
-                    </li>
-                    <li>
-                        <Link to="TVs" smooth={true} duration={900}>
-                            Top TVs
-                        </Link>
-                    </li>
-                </ul>
-            </nav>
-        </HeaderMain>
+            <S.SearchMovie>
+                <input type="text" placeholder="search movie" />
+                <button type="button" aria-label="search movie">
+                    <i className="fas fa-search" />
+                </button>
+            </S.SearchMovie>
+        </S.HeaderMain>
     );
 }
