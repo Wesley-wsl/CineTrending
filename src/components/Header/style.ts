@@ -9,7 +9,14 @@ export const HeaderMain = styled.header`
 
     h1 {
         margin: 0 20px;
-        font-size: clamp(25px, 3vw, 32px);
+        font-size: clamp(15px, 3vw, 32px);
+    }
+
+    @media (max-width: 330px) {
+        padding-left: 8px;
+        h1 {
+            margin-left: 0px;
+        }
     }
 `;
 
@@ -24,6 +31,7 @@ export const SearchMovie = styled.div`
         border: none;
         background-color: var(--primary);
         padding-left: 12px;
+        padding-right: 40px;
         color: #e2e2e2e2;
 
         &::placeholder {
@@ -39,8 +47,8 @@ export const SearchMovie = styled.div`
         border: none;
         background-color: transparent;
         text-align: center;
+        width: 25px;
         cursor: pointer;
-
         i {
             color: #fff;
         }
