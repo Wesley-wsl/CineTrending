@@ -2,29 +2,26 @@ import styled from 'styled-components';
 
 export const FooterStyle = styled.footer`
     display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    background-color: #00020b;
-    padding: 30px;
-    margin-top: 150px;
+    flex-direction: column;
+    padding-left: 70px;
+    padding-bottom: 140px;
+    margin-top: 255px;
     height: 200px;
-    p {
-        font-size: 35px;
-        margin-left: 3%;
+
+    h1 {
+        font-size: clamp(35px, 5vw, 48px);
+        font-weight: bold;
 
         span {
-            font-size: 15px;
-            opacity: 0.7;
-
-            a {
-                text-decoration: underline;
-            }
+            font-weight: 300;
         }
     }
 
-    @media (max-width: 257px) {
-        p {
-            font-size: 20px;
+    p {
+        font-size: clamp(16px, 4vw, 24px);
+        font-weight: 300;
+        a {
+            text-decoration: underline;
         }
     }
 `;

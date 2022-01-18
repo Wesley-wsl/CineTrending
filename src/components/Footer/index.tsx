@@ -3,11 +3,12 @@ import { FooterStyle } from './style';
 export default function Footer() {
     return (
         <FooterStyle>
+            <h1>
+                CineTrending <span> © 2021</span>
+            </h1>
+
             <p>
-                CineTrending - 2021 <br />
-                <span>
-                    powered by <a href="https://www.themoviedb.org">tmdb</a>
-                </span>
+                powered by <a href="https://www.themoviedb.org">tmdb</a>
             </p>
         </FooterStyle>
     );
