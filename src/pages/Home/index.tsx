@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 
+import { IMovie } from '../../@types';
 import Footer from '../../components/Footer';
 import Header from '../../components/Header';
 import { List } from '../../components/List';
@@ -8,8 +9,8 @@ import { api, keyApi } from '../../services/api';
 import * as S from './styles';
 
 export default function Home() {
-    const [trendingTVs, setTrendingTVs] = useState(Object);
-    const [trendingMovies, setTrendingMovies] = useState(Object);
+    const [trendingTVs, setTrendingTVs] = useState<IMovie[]>([]);
+    const [trendingMovies, setTrendingMovies] = useState<IMovie[]>([]);
     const [loading, setLoading] = useState(true);
 
     async function getTrendingMovies() {
@@ -58,11 +59,17 @@ export default function Home() {
                     </div>
                 </S.HeroImage>
 
-                <S.ListName>Trending Movies</S.ListName>
-                <List listRenderWith={trendingMovies} isMovie={true} />
+                <List
+                    listName="Trending Movies"
+                    listRenderWith={trendingMovies}
+                    isMovie={true}
+                />
 
-                <S.ListName>Trending TVs</S.ListName>
-                <List listRenderWith={trendingTVs} isMovie={false} />
+                <List
+                    listName="Trending TVs"
+                    listRenderWith={trendingTVs}
+                    isMovie={false}
+                />
             </main>
             <Footer />
         </>
