@@ -5,6 +5,7 @@ const Global = createGlobalStyle`
 :root {
     --primary: #000;
     --secondary: #050E12;
+    --button: #FFDA18;
 }
 
 * {
