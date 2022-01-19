@@ -2,12 +2,17 @@ import { Link } from 'react-router-dom';
 
 import { IList, IMovie } from '../../@types';
 import { ListName } from '../../pages/Home/styles';
-import { ListStyle } from './styles';
+import { Anything, ListStyle } from './styles';
 
 export function List({ listRenderWith, isMovie, listName }: IList) {
     return (
         <>
-            <ListName>{listName}</ListName>
+            {!listRenderWith[0] ? (
+                <Anything>Not Found Anything</Anything>
+            ) : (
+                <ListName>{listName}</ListName>
+            )}
+
             <ListStyle>
                 {listRenderWith.map((movie: IMovie, index: number) => (
                     <div key={index}>

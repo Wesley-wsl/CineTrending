@@ -55,3 +55,9 @@ export const ListStyle = styled.section`
         }
     }
 `;
+
+export const Anything = styled.h1`
+    text-align: center;
+    letter-spacing: 4px;
+    margin-top: 180px;
+`;
