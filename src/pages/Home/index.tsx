@@ -1,81 +1,70 @@
-import axios from 'axios';
 import { useEffect, useState } from 'react';
 
+import Footer from '../../components/Footer';
+import Header from '../../components/Header';
 import { List } from '../../components/List';
-import { HeroImage, ListName } from './style';
+import Loading from '../../components/Loading';
+import { api, keyApi } from '../../services/api';
+import * as S from './style';
 
 export default function Home() {
     const [trendingTVs, setTrendingTVs] = useState(Object);
-    const [existsTVs, setExistsTVs] = useState(Boolean);
     const [trendingMovies, setTrendingMovies] = useState(Object);
-    const [existsMovies, setExistsMovies] = useState(Boolean);
-    const api = {
-        key: process.env.REACT_APP_IMDB_API_KEY,
-        base: 'https://api.themoviedb.org/3/',
-        lang: 'en-US',
-    };
+    const [loading, setLoading] = useState(true);
 
-    function getTrendingMovies() {
-        axios
-            .get(`${api.base}trending/movie/day?api_key=${api.key}&page=1`)
-            .then(res => {
-                setTrendingMovies(res.data.results);
-                setExistsMovies(true);
-            })
-            .catch(error => {
-                console.log(`Houve um erro: ${error}`);
-            });
+    async function getTrendingMovies() {
+        await api
+            .get(`trending/movie/day?api_key=${keyApi}&page=1`)
+            .then(res => setTrendingMovies(res.data.results.slice(0, 10)));
     }
 
-    function getTrendingTVs() {
-        axios
-            .get(`${api.base}trending/tv/day?api_key=${api.key}&page=1`)
-            .then(res => {
-                setTrendingTVs(res.data.results);
-                setExistsTVs(true);
-            })
-            .catch(error => {
-                console.log(`Houve um erro: ${error}`);
-            });
+    async function getTrendingTVs() {
+        await api
+            .get(`trending/tv/day?api_key=${keyApi}&page=1`)
+            .then(res => setTrendingTVs(res.data.results.slice(0, 10)));
     }
 
     useEffect(() => {
-        getTrendingMovies();
-        getTrendingTVs();
-        // eslint-disable-next-line react-hooks/exhaustive-deps
+        const abort = new AbortController();
+        Promise.all([getTrendingMovies(), getTrendingTVs()])
+            .then(() => {
+                setLoading(false);
+            })
+            .catch(err => console.log(err));
+        return () => abort.abort();
     }, []);
 
+    if (loading) {
+        return <Loading />;
+    }
+
     return (
-        <main>
-            {existsMovies ? (
-                <HeroImage>
+        <>
+            <Header />
+            <main>
+                <S.HeroImage>
                     <img
                         src={`https://image.tmdb.org/t/p/original${trendingMovies[0].backdrop_path}`}
                         alt="Hero Image"
                     />
-                </HeroImage>
-            ) : (
-                ''
-            )}
 
-            <ListName id="Movies">
-                <h2>TOP 10 - Trending Movies Today</h2>
-            </ListName>
-            {existsMovies ? (
+                    <div>
+                        <h1>{trendingMovies[0].title}</h1>
+                        <p>{trendingMovies[0].overview}</p>
+                        <p>
+                            <i className="fas fa-star" />{' '}
+                            {trendingMovies[0].vote_average}
+                        </p>
+                    </div>
+                </S.HeroImage>
+
+                <S.ListName>Trending Movies</S.ListName>
                 <List listRenderWith={trendingMovies} isMovie={true} />
-            ) : (
-                ''
-            )}
 
-            <ListName id="TVs">
-                <h2>TOP 10 - Trending TVs Today</h2>
-            </ListName>
-
-            {existsTVs ? (
+                <S.ListName>Trending TVs</S.ListName>
                 <List listRenderWith={trendingTVs} isMovie={false} />
-            ) : (
-                ''
-            )}
-        </main>
+            </main>
+            <Footer />
+        </>
     );
 }
