@@ -1,14 +1,15 @@
 import styled from 'styled-components';
 
-export const FooterStyle = styled.footer`
+export const Container = styled.footer`
     display: flex;
     flex-direction: column;
     padding-left: 70px;
     padding-bottom: 140px;
-    margin-top: 255px;
-    height: 200px;
+    margin-top: 200px;
+    height: 170px;
 
     h1 {
+        margin-top: 20px;
         font-size: clamp(35px, 5vw, 48px);
         font-weight: bold;
 

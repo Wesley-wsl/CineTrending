@@ -1,8 +1,8 @@
-import { FooterStyle } from './style';
+import * as S from './style';
 
 export default function Footer() {
     return (
-        <FooterStyle>
+        <S.Container>
             <h1>
                 CineTrending <span> © 2021</span>
             </h1>
@@ -10,6 +10,6 @@ export default function Footer() {
             <p>
                 powered by <a href="https://www.themoviedb.org">tmdb</a>
             </p>
-        </FooterStyle>
+        </S.Container>
     );
 }
