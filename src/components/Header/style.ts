@@ -20,7 +20,7 @@ export const HeaderMain = styled.header`
     }
 `;
 
-export const SearchMovie = styled.div`
+export const SearchMovie = styled.form`
     position: relative;
     width: 300px;
 
