@@ -6,6 +6,7 @@ export const ListStyle = styled.section`
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    letter-spacing: 1px;
 
     div {
         background-color: var(--secondary);
