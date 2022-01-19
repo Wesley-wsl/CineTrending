@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 
 import { IList, IMovie } from '../../@types';
-import { ListName } from '../../pages/Home/styles';
+import * as S from './styles';
 import { Anything, ListStyle } from './styles';
 
 export function List({ listRenderWith, isMovie, listName }: IList) {
@@ -10,7 +10,7 @@ export function List({ listRenderWith, isMovie, listName }: IList) {
             {!listRenderWith[0] ? (
                 <Anything>Not Found Anything</Anything>
             ) : (
-                <ListName>{listName}</ListName>
+                <S.ListName>{listName}</S.ListName>
             )}
 
             <ListStyle>

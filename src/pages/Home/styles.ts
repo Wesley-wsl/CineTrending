@@ -37,13 +37,3 @@ export const HeroImage = styled.section`
         }
     }
 `;
-
-export const ListName = styled.h2`
-    font-size: clamp(20px, 4vw, 30px);
-    margin: 50px 110px;
-    max-width: 1110px;
-
-    @media (max-width: 1100px) {
-        margin-left: 50px;
-    }
-`;
