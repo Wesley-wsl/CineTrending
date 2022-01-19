@@ -5,7 +5,7 @@ import Header from '../../components/Header';
 import { List } from '../../components/List';
 import Loading from '../../components/Loading';
 import { api, keyApi } from '../../services/api';
-import * as S from './style';
+import * as S from './styles';
 
 export default function Home() {
     const [trendingTVs, setTrendingTVs] = useState(Object);
