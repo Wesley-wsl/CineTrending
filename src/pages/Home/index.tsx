@@ -1,39 +1,12 @@
-import { useEffect, useState } from 'react';
-
-import { IMovie } from '../../@types';
 import Footer from '../../components/Footer';
 import Header from '../../components/Header';
 import { List } from '../../components/List';
 import Loading from '../../components/Loading';
-import { api, keyApi } from '../../services/api';
+import { useTrendingFetch } from '../../hooks/useTrendingFetch';
 import * as S from './styles';
 
 export default function Home() {
-    const [trendingTVs, setTrendingTVs] = useState<IMovie[]>([]);
-    const [trendingMovies, setTrendingMovies] = useState<IMovie[]>([]);
-    const [loading, setLoading] = useState(true);
-
-    async function getTrendingMovies() {
-        await api
-            .get(`trending/movie/day?api_key=${keyApi}&page=1`)
-            .then(res => setTrendingMovies(res.data.results.slice(0, 10)));
-    }
-
-    async function getTrendingTVs() {
-        await api
-            .get(`trending/tv/day?api_key=${keyApi}&page=1`)
-            .then(res => setTrendingTVs(res.data.results.slice(0, 10)));
-    }
-
-    useEffect(() => {
-        const abort = new AbortController();
-        Promise.all([getTrendingMovies(), getTrendingTVs()])
-            .then(() => {
-                setLoading(false);
-            })
-            .catch(err => console.log(err));
-        return () => abort.abort();
-    }, []);
+    const { trendingMovies, trendingTvs, loading } = useTrendingFetch();
 
     if (loading) {
         return <Loading />;
@@ -67,7 +40,7 @@ export default function Home() {
 
                 <List
                     listName="Trending TVs"
-                    listRenderWith={trendingTVs}
+                    listRenderWith={trendingTvs}
                     isMovie={false}
                 />
             </main>
