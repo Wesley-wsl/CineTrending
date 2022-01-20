@@ -1,3 +1,7 @@
+type Genres = {
+    name: string;
+};
+
 export interface IMovie {
     title: string;
     backdrop_path: string;
@@ -9,6 +13,8 @@ export interface IMovie {
     first_air_date: string;
     id: string;
     poster_path: string;
+    status: string;
+    genres: Genres[];
 }
 
 export interface IList {
@@ -20,10 +26,21 @@ export interface IList {
 export interface IDetailsTemplate {
     data: IMovie;
     trailer: string;
+    cast: Cast[];
 }
 
 export interface IParams {
     id?: string | number;
     idTv?: string | number;
     movie?: string;
+}
+
+export type Cast = {
+    character: string;
+    profile_path: string;
+    name: string;
+};
+
+export interface ICast {
+    cast: Cast[];
 }
