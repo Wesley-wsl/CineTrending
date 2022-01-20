@@ -19,7 +19,6 @@ export const MainInformations = styled.div`
     display: flex;
     justify-content: start;
     align-items: end;
-    flex-direction: none;
     margin-top: -170px;
     margin-left: 100px;
 
@@ -92,6 +91,14 @@ export const Overview = styled.div`
 
     h2 {
         margin-bottom: 10px;
+    }
+
+    p {
+        margin-top: 15px;
+
+        span {
+            font-weight: 700;
+        }
     }
 
     @media (max-width: 750px) {
