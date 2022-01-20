@@ -1,9 +1,14 @@
 import { IDetailsTemplate } from '../../@types';
+import Cast from '../../components/Cast';
 import Footer from '../../components/Footer';
 import Header from '../../components/Header';
 import * as S from './styles';
 
-const DetailsTemplate: React.FC<IDetailsTemplate> = ({ data, trailer }) => {
+const DetailsTemplate: React.FC<IDetailsTemplate> = ({
+    data,
+    cast,
+    trailer,
+}) => {
     return (
         <>
             <Header />
@@ -47,7 +52,23 @@ const DetailsTemplate: React.FC<IDetailsTemplate> = ({ data, trailer }) => {
                 <S.Overview>
                     <h2>Overview</h2>
                     <p>{data.overview}</p>
+                    <p>
+                        <span>Genres:</span>
+                        {data.genres.map(
+                            genres =>
+                                ` ${genres.name}${
+                                    genres ===
+                                    data.genres[data.genres.length - 1]
+                                        ? '.'
+                                        : ','
+                                }`,
+                        )}
+                    </p>
+                    <p>
+                        <span>Status:</span> {data.status}
+                    </p>
                 </S.Overview>
+                <Cast cast={cast} />
             </S.DetailsStyle>
             <Footer />
         </>
